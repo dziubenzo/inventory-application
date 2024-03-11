@@ -1,1 +1,1 @@
-# inventory-application
+# Odin Project - Inventory Application
