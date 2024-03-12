@@ -94,7 +94,8 @@ body {
   }
 }
 
-.all-items {
+.all-items,
+.all-categories {
   margin: 2em 0;
   display: grid;
   gap: 16px;
@@ -108,7 +109,10 @@ body {
   }
 
   .index-no,
-  .category {
+  .category,
+  .category-name,
+  .category-description,
+  .item-count {
     text-align: center;
   }
 

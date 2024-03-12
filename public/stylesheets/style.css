@@ -78,7 +78,8 @@ body {
   letter-spacing: 4px;
 }
 
-.all-items {
+.all-items,
+.all-categories {
   margin: 2em 0;
   display: grid;
   gap: 16px;
@@ -86,15 +87,27 @@ body {
 }
 .all-items th,
 .all-items tr,
-.all-items td {
+.all-items td,
+.all-categories th,
+.all-categories tr,
+.all-categories td {
   padding: 1em;
   font-size: 0.9rem;
 }
 .all-items .index-no,
-.all-items .category {
+.all-items .category,
+.all-items .category-name,
+.all-items .category-description,
+.all-items .item-count,
+.all-categories .index-no,
+.all-categories .category,
+.all-categories .category-name,
+.all-categories .category-description,
+.all-categories .item-count {
   text-align: center;
 }
-.all-items a {
+.all-items a,
+.all-categories a {
   color: #cac0b3;
   text-decoration-color: #ff595a;
   text-underline-offset: 0.5em;

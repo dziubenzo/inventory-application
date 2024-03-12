@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div.all-categories
+    h1 All Categories
+    div.categories-table
+      if allCategories.length
+        table
+          tr
+            th No.
+            th Category
+            th Description 
+            th Items
+          each category, index in allCategories 
+            tr
+              td.index-no #{index + 1}
+              td.category-name
+                a(href=category.url) #{category.name}
+              td.category-description #{category.description}
+              td.item-count #{category.itemCount}
+      else
+        p No categories to display.
