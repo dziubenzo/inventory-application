@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+$bg-colour: #001233;
+$primary-colour: #ff595a;
+$secondary-colour: #cac0b3;
+$main-font: 'Noto Sans', sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $bg-colour;
+  color: $primary-colour;
+  font-family: $main-font;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}
+
+nav {
+  ul {
+    display: flex;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      list-style-type: none;
+      min-width: 150px;
+
+      a {
+        color: $secondary-colour;
+        text-decoration-color: $primary-colour;
+        text-underline-offset: 0.5em;
+
+        span {
+          font-size: 2rem;
+          color: $secondary-colour;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  img {
+    width: 32px;
+  }
+
+  .app-name,
+  .app-title {
+    position: absolute;
+    top: 0;
+  }
+
+  .app-name {
+    left: -15em;
+  }
+
+  .app-title {
+    right: -15em;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  place-items: center;
+  padding: 1em;
+  min-height: 100svh;
+  max-width: 1200px;
+}

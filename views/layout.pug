@@ -1,7 +1,31 @@
 doctype html
-html
+html(lang='en')
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    title Inventory App: #{title}
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='/stylesheets/style.css')
   body
-    block content
+    div.container
+      header
+        nav
+          ul
+            li
+              a(href='/items') Items
+            li
+              a(href='/categories') Categories
+            li
+              a(href='/') 
+                span Home
+            li
+              a(href='/create-item') Create Item
+            li
+              a(href='/create-category') Create Category
+      main
+        block content
+      footer
+        p.app-name Inventory App
+        p.app-title=title
+        p developed by dziubenzo
+        a(href="https://github.com/dziubenzo" target="_blank" rel="noopener noreferrer" aria-label="Developer's GitHub page, opens in new tab")
+          img(src="/images/github.svg" alt="GitHub Logo")

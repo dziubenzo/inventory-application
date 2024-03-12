@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #001233;
+  color: #ff595a;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+nav ul {
+  display: flex;
+}
+nav ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  min-width: 150px;
+}
+nav ul li a {
+  color: #cac0b3;
+  text-decoration-color: #ff595a;
+  text-underline-offset: 0.5em;
+}
+nav ul li a span {
+  font-size: 2rem;
+  color: #cac0b3;
+}
+
+footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+footer img {
+  width: 32px;
+}
+footer .app-name,
+footer .app-title {
+  position: absolute;
+  top: 0;
+}
+footer .app-name {
+  left: -15em;
+}
+footer .app-title {
+  right: -15em;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  place-items: center;
+  padding: 1em;
+  min-height: 100svh;
+  max-width: 1200px;
+}/*# sourceMappingURL=style.css.map */
