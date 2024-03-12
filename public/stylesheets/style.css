@@ -66,4 +66,14 @@ body {
   padding: 1em;
   min-height: 100svh;
   max-width: 1200px;
+}
+
+.index-page {
+  display: grid;
+  gap: 72px;
+  place-items: center;
+}
+.index-page span {
+  font-weight: 800;
+  letter-spacing: 4px;
 }/*# sourceMappingURL=style.css.map */

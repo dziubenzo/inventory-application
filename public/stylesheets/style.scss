@@ -82,3 +82,14 @@ body {
   min-height: 100svh;
   max-width: 1200px;
 }
+
+.index-page {
+  display: grid;
+  gap: 72px;
+  place-items: center;
+
+  span {
+    font-weight: 800;
+    letter-spacing: 4px;
+  }
+}
