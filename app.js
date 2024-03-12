@@ -8,6 +8,20 @@ const indexRouter = require('./routes/index');
 
 const app = express();
 
+// MongoDB connection
+const mongoose = require('mongoose');
+const mongoURL = require('./mongoURL');
+
+mongoose.set('strictQuery', false);
+
+const mongoDB = mongoURL || process.env.MONGODB_URI;
+
+main().catch((err) => console.log(err));
+
+async function main() {
+  await mongoose.connect(mongoDB);
+}
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
