@@ -93,3 +93,28 @@ body {
     letter-spacing: 4px;
   }
 }
+
+.all-items {
+  margin: 2em 0;
+  display: grid;
+  gap: 16px;
+  place-items: center;
+
+  th,
+  tr,
+  td {
+    padding: 1em;
+    font-size: 0.9rem;
+  }
+
+  .index-no,
+  .category {
+    text-align: center;
+  }
+
+  a {
+    color: $secondary-colour;
+    text-decoration-color: $primary-colour;
+    text-underline-offset: 0.5em;
+  }
+}

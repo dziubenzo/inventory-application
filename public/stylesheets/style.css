@@ -76,4 +76,26 @@ body {
 .index-page span {
   font-weight: 800;
   letter-spacing: 4px;
+}
+
+.all-items {
+  margin: 2em 0;
+  display: grid;
+  gap: 16px;
+  place-items: center;
+}
+.all-items th,
+.all-items tr,
+.all-items td {
+  padding: 1em;
+  font-size: 0.9rem;
+}
+.all-items .index-no,
+.all-items .category {
+  text-align: center;
+}
+.all-items a {
+  color: #cac0b3;
+  text-decoration-color: #ff595a;
+  text-underline-offset: 0.5em;
 }/*# sourceMappingURL=style.css.map */

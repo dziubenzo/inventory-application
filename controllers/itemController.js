@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 
 exports.all_items = asyncHandler(async (req, res, next) => {
   // Get all items from DB
-  const allItems = await Item.find({}, 'name category')
+  const allItems = await Item.find({}, 'name category slug')
     .populate('category')
     .sort({ name: 1 })
     .exec();

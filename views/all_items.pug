@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  div.all-items
+    h1 All Items
+    div.items-table
+      if allItems.length
+        table
+          tr
+            th No.
+            th Name
+            th Category
+          each item, index in allItems 
+            tr
+              td.index-no #{index + 1}
+              td
+                a(href=item.url) #{item.name}
+              td.category
+                a(href=item.category.url) #{item.category.name}
+      else
+        p No items to display.
