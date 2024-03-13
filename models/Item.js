@@ -3,8 +3,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ItemSchema = new Schema({
-  name: { type: String, required: true, maxLength: 200, unique: true },
-  description: { type: String, required: true },
+  name: {
+    type: String,
+    required: true,
+    minLength: 3,
+    maxLength: 200,
+    unique: true,
+  },
+  description: { type: String, required: true, minLength: 3 },
   category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
   price: { type: Number, required: true, min: 0.01 },
   in_stock_count: { type: Number, required: true, min: 0 },
