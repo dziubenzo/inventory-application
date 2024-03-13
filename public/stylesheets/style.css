@@ -243,4 +243,9 @@ body {
   font-weight: 800;
   letter-spacing: 1px;
   cursor: pointer;
+}
+.create-category .errors p {
+  color: red;
+  text-align: center;
+  margin-bottom: 1em;
 }/*# sourceMappingURL=style.css.map */

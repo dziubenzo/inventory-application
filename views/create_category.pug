@@ -12,3 +12,7 @@ block content
         textarea#description(name="description" placeholder='Category description' rows=8 required) #{category===undefined ? '' : category.description}
       div.submit-button
         button(type="submit") Create
+    if errors
+      div.errors
+        for error in errors
+          p ERROR: #{error.msg}
