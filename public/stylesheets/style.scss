@@ -154,7 +154,8 @@ body {
   }
 }
 
-.create-category {
+.create-category,
+.create-item {
   margin: 2em 0;
   display: grid;
   gap: 32px;
@@ -168,7 +169,8 @@ body {
     margin-bottom: 1em;
 
     input,
-    textarea {
+    textarea,
+    select {
       min-width: 300px;
       border: 2px solid $secondary-colour;
       color: $secondary-colour;
@@ -176,13 +178,24 @@ body {
       padding: 1em;
       line-height: 1.5;
 
-      &::placeholder {
-        color: $primary-colour;
+      &:focus-visible {
+        outline-color: $primary-colour;
       }
     }
 
     textarea {
       resize: vertical;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type='number'] {
+      appearance: textfield;
+      -moz-appearance: textfield;
     }
   }
 
@@ -201,6 +214,10 @@ body {
       font-weight: 800;
       letter-spacing: 1px;
       cursor: pointer;
+
+      &:focus-visible {
+        outline-color: $primary-colour;
+      }
     }
   }
 

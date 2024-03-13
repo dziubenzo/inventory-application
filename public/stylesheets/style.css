@@ -196,13 +196,15 @@ body {
   text-underline-offset: 0.5em;
 }
 
-.create-category {
+.create-category,
+.create-item {
   margin: 2em 0;
   display: grid;
   gap: 32px;
   place-items: center;
 }
-.create-category .form-control {
+.create-category .form-control,
+.create-item .form-control {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -210,7 +212,11 @@ body {
   margin-bottom: 1em;
 }
 .create-category .form-control input,
-.create-category .form-control textarea {
+.create-category .form-control textarea,
+.create-category .form-control select,
+.create-item .form-control input,
+.create-item .form-control textarea,
+.create-item .form-control select {
   min-width: 300px;
   border: 2px solid #cac0b3;
   color: #cac0b3;
@@ -218,22 +224,39 @@ body {
   padding: 1em;
   line-height: 1.5;
 }
-.create-category .form-control input::-moz-placeholder, .create-category .form-control textarea::-moz-placeholder {
-  color: #ff595a;
+.create-category .form-control input:focus-visible,
+.create-category .form-control textarea:focus-visible,
+.create-category .form-control select:focus-visible,
+.create-item .form-control input:focus-visible,
+.create-item .form-control textarea:focus-visible,
+.create-item .form-control select:focus-visible {
+  outline-color: #ff595a;
 }
-.create-category .form-control input::placeholder,
-.create-category .form-control textarea::placeholder {
-  color: #ff595a;
-}
-.create-category .form-control textarea {
+.create-category .form-control textarea,
+.create-item .form-control textarea {
   resize: vertical;
 }
-.create-category .submit-button {
+.create-category .form-control input::-webkit-outer-spin-button,
+.create-category .form-control input::-webkit-inner-spin-button,
+.create-item .form-control input::-webkit-outer-spin-button,
+.create-item .form-control input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.create-category .form-control input[type=number],
+.create-item .form-control input[type=number] {
+  -webkit-appearance: textfield;
+          appearance: textfield;
+  -moz-appearance: textfield;
+}
+.create-category .submit-button,
+.create-item .submit-button {
   display: flex;
   justify-content: center;
   margin-top: 2em;
 }
-.create-category .submit-button button {
+.create-category .submit-button button,
+.create-item .submit-button button {
   min-width: 100px;
   min-height: 40px;
   padding: 0.75em;
@@ -244,7 +267,12 @@ body {
   letter-spacing: 1px;
   cursor: pointer;
 }
-.create-category .errors p {
+.create-category .submit-button button:focus-visible,
+.create-item .submit-button button:focus-visible {
+  outline-color: #ff595a;
+}
+.create-category .errors p,
+.create-item .errors p {
   color: red;
   text-align: center;
   margin-bottom: 1em;

@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  div.create-item
+    h1 Create Item
+    form(method="post")
+      div.form-control
+        label(for="name") Name: 
+        input#name(type="text" name="name" placeholder='Item name' required value=(item===undefined ? '' : item.name))
+      div.form-control
+        label(for="description") Description: 
+        textarea#description(name="description" placeholder='Item description' rows=8 required) #{item===undefined ? '' : item.description}
+      div.form-control
+        label(for="category") Category: 
+        select#category(name='category' required)
+          option(value='') -- Choose from the list --
+          for category in allCategories
+            if item
+              if item.category._id.toString()===category._id.toString()
+                option(value=category._id selected) #{category.name}
+              else
+                option(value=category._id) #{category.name}
+            else
+              option(value=category._id) #{category.name}
+      div.form-control
+        label(for="price") Price ($): 
+        input#price(type="number" name="price" placeholder='Item price' required min=0.01 step=0.01 value=(item===undefined ? 1.95 : item.price))
+      div.form-control
+        label(for="in_stock_count") Stock:
+        input#in_stock_count(type="number" name="in_stock_count" placeholder='Item stock' required min=0 value=(item===undefined ? 0 : item.in_stock_count))
+      div.submit-button
+        button(type="submit") Create
+    if errors
+      div.errors
+        for error in errors
+          p ERROR: #{error.msg}
