@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  div.create-item
-    h1 Create Item
+  div.update-item
+    h1 Update Item
     form(method="post")
       div.form-control
         label(for="name") Name: 
@@ -28,8 +28,12 @@ block content
       div.form-control
         label(for="in_stock_count") Stock:
         input#in_stock_count(type="number" name="in_stock_count" placeholder='Item stock' required min=0 value=(item===undefined ? 0 : item.in_stock_count))
+      p This action requires password!
+      div.form-control
+        label(for="password") Password: 
+        input#password(type="password" name="password" required)
       div.submit-button
-        button(type="submit") Create
+        button(type="submit") Update
     if errors
       div.errors
         for error in errors
