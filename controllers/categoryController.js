@@ -96,3 +96,19 @@ exports.category_details = asyncHandler(async (req, res, next) => {
     allCategoryItems,
   });
 });
+
+exports.update_category_get = asyncHandler(async (req, res, next) => {
+  res.send('Update category');
+});
+
+exports.update_category_post = asyncHandler(async (req, res, next) => {
+  res.send('Update category');
+});
+
+exports.delete_category_get = asyncHandler(async (req, res, next) => {
+  res.send('Delete category');
+});
+
+exports.delete_category_post = asyncHandler(async (req, res, next) => {
+  res.send('Delete category');
+});

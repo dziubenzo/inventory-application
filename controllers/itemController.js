@@ -65,8 +65,8 @@ exports.create_item_post = [
     const name = req.body.name;
     const description = req.body.description;
     const category = req.body.category;
-    const price = Number(req.body.price);
-    const in_stock_count = Number(req.body.in_stock_count);
+    const price = req.body.price;
+    const in_stock_count = req.body.in_stock_count;
 
     // Create item with the name field turned into a slug
     const item = new Item({
@@ -125,4 +125,20 @@ exports.item_details = asyncHandler(async (req, res, next) => {
   const [item] = await Item.find({ slug: slug }).populate('category').exec();
 
   res.render('item_details', { title: 'Item Details', item });
+});
+
+exports.update_item_get = asyncHandler(async (req, res, next) => {
+  res.send('Update item');
+});
+
+exports.update_item_post = asyncHandler(async (req, res, next) => {
+  res.send('Update item');
+});
+
+exports.delete_item_get = asyncHandler(async (req, res, next) => {
+  res.send('Delete item');
+});
+
+exports.delete_item_post = asyncHandler(async (req, res, next) => {
+  res.send('Delete item');
 });
