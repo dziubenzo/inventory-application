@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div.update-category
+    h1 Update Category
+    form(method="post")
+      div.form-control
+        label(for="name") Name: 
+        input#name(type="text" name="name" placeholder='Category name' required value=(category===undefined ? '' : category.name))
+      div.form-control
+        label(for="description") Description: 
+        textarea#description(name="description" placeholder='Category description' rows=8 required) #{category===undefined ? '' : category.description}
+      p This action requires password!
+      div.form-control
+        label(for="password") Password: 
+        input#password(type="password" name="password" required)
+      div.submit-button
+        button(type="submit") Update
+    if errors
+      div.errors
+        for error in errors
+          p ERROR: #{error.msg}

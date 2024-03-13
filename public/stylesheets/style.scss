@@ -155,7 +155,8 @@ body {
 }
 
 .create-category,
-.create-item {
+.create-item,
+.update-category {
   margin: 2em 0;
   display: grid;
   gap: 32px;
@@ -197,6 +198,11 @@ body {
       appearance: textfield;
       -moz-appearance: textfield;
     }
+  }
+
+  p {
+    margin: 2em 0;
+    text-align: center;
   }
 
   .submit-button {
