@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  div.item-details
+    h1 Item Details
+    table.item-details-table
+      tr
+        th Name:
+        td #{item.name}
+      tr
+        th Description:
+        td #{item.description}
+      tr
+        th Category:
+        td
+          a(href=item.category.url) #{item.category.name}
+      tr
+        th Price:
+        td $#{item.price.toFixed(2)}
+      tr 
+        th Stock:
+        td #{item.in_stock_count}
+    div.buttons
+      a(href=item.url + '/update' aria-label="Update Item")
+        img(src="/images/edit.svg" alt="Edit Item Icon")
+      a(href=item.url + '/delete' aria-label="Delete Item")
+        img(src="/images/delete.svg" alt="Delete Item Icon")

@@ -2,6 +2,8 @@
 
 $bg-colour: #001233;
 $primary-colour: #ff595a;
+$primary-colour-icon: invert(66%) sepia(74%) saturate(4990%) hue-rotate(325deg)
+  brightness(101%) contrast(108%);
 $secondary-colour: #cac0b3;
 $main-font: 'Noto Sans', sans-serif;
 
@@ -95,11 +97,31 @@ body {
 }
 
 .all-items,
-.all-categories {
+.all-categories,
+.item-details {
   margin: 2em 0;
   display: grid;
   gap: 16px;
   place-items: center;
+
+  .item-details-table {
+    max-width: 600px;
+
+    th {
+      text-align: initial;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 48px;
+
+    img {
+      background-color: initial;
+      filter: $primary-colour-icon;
+      width: 48px;
+    }
+  }
 
   th,
   tr,
