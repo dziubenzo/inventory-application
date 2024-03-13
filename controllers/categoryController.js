@@ -20,5 +20,17 @@ exports.create_category = asyncHandler(async (req, res, next) => {
 });
 
 exports.category_details = asyncHandler(async (req, res, next) => {
-  res.send('Category details');
+  // Get requested category from DB based on URL parameter
+  const slug = req.params.slug;
+  const [category] = await Category.find({ slug: slug }).exec();
+  // Get all items in this category
+  const allCategoryItems = await Item.find({ category: category })
+    .sort({ name: 1 })
+    .exec();
+
+  res.render('category_details', {
+    title: 'Category Details',
+    category,
+    allCategoryItems,
+  });
 });
