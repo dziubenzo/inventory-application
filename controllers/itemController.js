@@ -91,6 +91,7 @@ exports.create_item_post = [
         item,
         errors: errors.array(),
       });
+      return;
     } else {
       // Check if the category with the same name already exists.
       const itemExists = await Item.findOne({ name: name }).exec();
@@ -110,6 +111,7 @@ exports.create_item_post = [
           item,
           errors: errorArray,
         });
+        return;
       } else {
         // Save item and redirect to item details
         await item.save();
