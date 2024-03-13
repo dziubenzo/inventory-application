@@ -194,4 +194,53 @@ body {
   color: #cac0b3;
   text-decoration-color: #ff595a;
   text-underline-offset: 0.5em;
+}
+
+.create-category {
+  margin: 2em 0;
+  display: grid;
+  gap: 32px;
+  place-items: center;
+}
+.create-category .form-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 1em;
+}
+.create-category .form-control input,
+.create-category .form-control textarea {
+  min-width: 300px;
+  border: 2px solid #cac0b3;
+  color: #cac0b3;
+  border-radius: 8px;
+  padding: 1em;
+  line-height: 1.5;
+}
+.create-category .form-control input::-moz-placeholder, .create-category .form-control textarea::-moz-placeholder {
+  color: #ff595a;
+}
+.create-category .form-control input::placeholder,
+.create-category .form-control textarea::placeholder {
+  color: #ff595a;
+}
+.create-category .form-control textarea {
+  resize: vertical;
+}
+.create-category .submit-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+.create-category .submit-button button {
+  min-width: 100px;
+  min-height: 40px;
+  padding: 0.75em;
+  border: 2px solid #cac0b3;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

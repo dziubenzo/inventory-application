@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  div.create-category
+    h1 Create Category
+    form(method="post")
+      div.form-control
+        label(for="name") Name: 
+        input#name(type="text" name="name" placeholder='Category name' required value=(category===undefined ? '' : category.name))
+      div.form-control
+        label(for="description") Description: 
+        textarea#description(name="description" placeholder='Category description' rows=8 required) #{category===undefined ? '' : category.description}
+      div.submit-button
+        button(type="submit") Create
