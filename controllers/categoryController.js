@@ -15,7 +15,11 @@ exports.all_categories = asyncHandler(async (req, res, next) => {
   res.render('all_categories', { title: 'Categories', allCategories });
 });
 
-exports.create_category = asyncHandler(async (req, res, next) => {
+exports.create_category_get = asyncHandler(async (req, res, next) => {
+  res.render('create_category', {title: 'Create Category'})
+});
+
+exports.create_category_post = asyncHandler(async (req, res, next) => {
   res.send('Create category');
 });
 
