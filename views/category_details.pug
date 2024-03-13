@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  div.category-details
+    h1 Category Details
+    table.category-details-table
+      tr
+        th Name:
+        td #{category.name}
+      tr
+        th Description:
+        td #{category.description}
+    div.category-items
+      h1 Category Items
+      div.category-items-table
+        if allCategoryItems.length
+          table
+            tr
+              th No.
+              th Item
+            each item, index in allCategoryItems 
+              tr
+                td.index-no #{index + 1}
+                td
+                  a(href=item.url) #{item.name}
+        else
+          p There are no items in this category.
+    div.buttons
+      a(href=category.url + '/update' aria-label="Update Category")
+        img(src="/images/edit.svg" alt="Edit Category Icon")
+      a(href=category.url + '/delete' aria-label="Delete Category")
+        img(src="/images/delete.svg" alt="Delete Category Icon")

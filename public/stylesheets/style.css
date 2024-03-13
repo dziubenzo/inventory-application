@@ -80,33 +80,65 @@ body {
 
 .all-items,
 .all-categories,
-.item-details {
+.item-details,
+.category-details,
+.category-items {
   margin: 2em 0;
   display: grid;
   gap: 16px;
   place-items: center;
 }
 .all-items .item-details-table,
+.all-items .category-details-table,
 .all-categories .item-details-table,
-.item-details .item-details-table {
+.all-categories .category-details-table,
+.item-details .item-details-table,
+.item-details .category-details-table,
+.category-details .item-details-table,
+.category-details .category-details-table,
+.category-items .item-details-table,
+.category-items .category-details-table {
   max-width: 600px;
 }
 .all-items .item-details-table th,
+.all-items .category-details-table th,
 .all-categories .item-details-table th,
-.item-details .item-details-table th {
+.all-categories .category-details-table th,
+.item-details .item-details-table th,
+.item-details .category-details-table th,
+.category-details .item-details-table th,
+.category-details .category-details-table th,
+.category-items .item-details-table th,
+.category-items .category-details-table th {
   text-align: initial;
+}
+.all-items .item-details-table td,
+.all-items .category-details-table td,
+.all-categories .item-details-table td,
+.all-categories .category-details-table td,
+.item-details .item-details-table td,
+.item-details .category-details-table td,
+.category-details .item-details-table td,
+.category-details .category-details-table td,
+.category-items .item-details-table td,
+.category-items .category-details-table td {
+  line-height: 1.75;
 }
 .all-items .buttons,
 .all-categories .buttons,
-.item-details .buttons {
+.item-details .buttons,
+.category-details .buttons,
+.category-items .buttons {
   display: flex;
   gap: 48px;
 }
 .all-items .buttons img,
 .all-categories .buttons img,
-.item-details .buttons img {
+.item-details .buttons img,
+.category-details .buttons img,
+.category-items .buttons img {
   background-color: initial;
-  filter: invert(66%) sepia(74%) saturate(4990%) hue-rotate(325deg) brightness(101%) contrast(108%);
+  filter: invert(83%) sepia(5%) saturate(549%) hue-rotate(354deg) brightness(92%) contrast(93%);
   width: 48px;
 }
 .all-items th,
@@ -117,7 +149,13 @@ body {
 .all-categories td,
 .item-details th,
 .item-details tr,
-.item-details td {
+.item-details td,
+.category-details th,
+.category-details tr,
+.category-details td,
+.category-items th,
+.category-items tr,
+.category-items td {
   padding: 1em;
   font-size: 0.9rem;
 }
@@ -135,12 +173,24 @@ body {
 .item-details .category,
 .item-details .category-name,
 .item-details .category-description,
-.item-details .item-count {
+.item-details .item-count,
+.category-details .index-no,
+.category-details .category,
+.category-details .category-name,
+.category-details .category-description,
+.category-details .item-count,
+.category-items .index-no,
+.category-items .category,
+.category-items .category-name,
+.category-items .category-description,
+.category-items .item-count {
   text-align: center;
 }
 .all-items a,
 .all-categories a,
-.item-details a {
+.item-details a,
+.category-details a,
+.category-items a {
   color: #cac0b3;
   text-decoration-color: #ff595a;
   text-underline-offset: 0.5em;

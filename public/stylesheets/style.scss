@@ -5,6 +5,8 @@ $primary-colour: #ff595a;
 $primary-colour-icon: invert(66%) sepia(74%) saturate(4990%) hue-rotate(325deg)
   brightness(101%) contrast(108%);
 $secondary-colour: #cac0b3;
+$secondary-colour-icon: invert(83%) sepia(5%) saturate(549%) hue-rotate(354deg)
+  brightness(92%) contrast(93%);
 $main-font: 'Noto Sans', sans-serif;
 
 * {
@@ -98,17 +100,24 @@ body {
 
 .all-items,
 .all-categories,
-.item-details {
+.item-details,
+.category-details,
+.category-items {
   margin: 2em 0;
   display: grid;
   gap: 16px;
   place-items: center;
 
-  .item-details-table {
+  .item-details-table,
+  .category-details-table {
     max-width: 600px;
 
     th {
       text-align: initial;
+    }
+
+    td {
+      line-height: 1.75;
     }
   }
 
@@ -118,7 +127,7 @@ body {
 
     img {
       background-color: initial;
-      filter: $primary-colour-icon;
+      filter: $secondary-colour-icon;
       width: 48px;
     }
   }
