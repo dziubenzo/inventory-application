@@ -59,7 +59,7 @@ exports.create_item_post = [
     .escape(),
 
   asyncHandler(async (req, res, next) => {
-    // Extract the validation errors from a request.
+    // Extract the validation errors from a request
     const errors = validationResult(req);
 
     const name = req.body.name;
@@ -78,7 +78,7 @@ exports.create_item_post = [
       slug: slugify(name, { lower: true }),
     });
 
-    // Render the page again with sanitised values and error messages if there are errors.
+    // Render the page again with sanitised values and error messages if there are errors
     if (!errors.isEmpty()) {
       // Get all categories again
       const allCategories = await Category.find({}, 'name')
@@ -93,7 +93,7 @@ exports.create_item_post = [
       });
       return;
     } else {
-      // Check if the category with the same name already exists.
+      // Check if the category with the same name already exists
       const itemExists = await Item.findOne({ name: name }).exec();
 
       // Render the form again with relevant error message
@@ -130,7 +130,16 @@ exports.item_details = asyncHandler(async (req, res, next) => {
 });
 
 exports.update_item_get = asyncHandler(async (req, res, next) => {
-  res.send('Update item');
+  // Get requested item and all categories
+  const slug = req.params.slug;
+  const [itemArray, allCategories] = await Promise.all([
+    Item.find({ slug: slug }).exec(),
+    Category.find({}, 'name').sort({ name: 1 }).exec(),
+  ]);
+  // Turn array containing a single item object into a single object for use in the template
+  const [item] = itemArray;
+
+  res.render('update_item', { title: 'Update Item', allCategories, item });
 });
 
 exports.update_item_post = asyncHandler(async (req, res, next) => {
