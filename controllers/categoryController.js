@@ -98,7 +98,11 @@ exports.category_details = asyncHandler(async (req, res, next) => {
 });
 
 exports.update_category_get = asyncHandler(async (req, res, next) => {
-  res.send('Update category');
+  // Get requested category from DB based on URL parameter
+  const slug = req.params.slug;
+  const [category] = await Category.find({ slug: slug }).exec();
+
+  res.render('update_category', { title: 'Update Category', category });
 });
 
 exports.update_category_post = asyncHandler(async (req, res, next) => {
