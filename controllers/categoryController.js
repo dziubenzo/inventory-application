@@ -66,6 +66,7 @@ exports.create_category_post = [
       if (categoryExists) {
         // Create custom error array for use in the template
         const errorArray = [{ msg: 'Category already exists.' }];
+
         res.render('create_category', {
           title: 'Create Category',
           category,
