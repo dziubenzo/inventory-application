@@ -16,5 +16,9 @@ exports.create_item = asyncHandler(async (req, res, next) => {
 });
 
 exports.item_details = asyncHandler(async (req, res, next) => {
-  res.send('Item details');
+  // Get requested item from the DB based on URL parameter
+  const slug = req.params.slug;
+  const [item] = await Item.find({ slug: slug }).populate('category').exec();
+
+  res.render('item_details', { title: 'Item Details', item });
 });
