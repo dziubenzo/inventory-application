@@ -88,6 +88,17 @@ exports.category_details = asyncHandler(async (req, res, next) => {
   // Get requested category from DB based on URL parameter
   const slug = req.params.slug;
   const [category] = await Category.find({ slug: slug }).exec();
+
+  // Render error page if category not found
+  if (!category) {
+    res.render('error', {
+      title: 'Error - Category',
+      message: 'Category Not Found',
+      error: { status: 404 },
+    });
+    return;
+  }
+
   // Get all items in this category
   const allCategoryItems = await Item.find({ category: category })
     .sort({ name: 1 })
