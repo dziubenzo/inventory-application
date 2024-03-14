@@ -14,7 +14,7 @@ const ItemSchema = new Schema({
   category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
   price: { type: Number, required: true, min: 0.01 },
   in_stock_count: { type: Number, required: true, min: 0 },
-  slug: { type: String, required: true, maxLength: 200 },
+  slug: { type: String, required: true, maxLength: 300 },
 });
 
 // Virtual for item's URL

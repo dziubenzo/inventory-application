@@ -14,7 +14,7 @@ const CategorySchema = new Schema({
   slug: {
     type: String,
     required: true,
-    maxLength: 100,
+    maxLength: 150,
   },
 });
 
