@@ -266,6 +266,56 @@ exports.delete_item_get = asyncHandler(async (req, res, next) => {
   res.render('delete_item', { title: 'Delete Item', item });
 });
 
-exports.delete_item_post = asyncHandler(async (req, res, next) => {
-  res.send('Delete item');
-});
+exports.delete_item_post = [
+  // Validate and sanitise password
+  body('password', 'Password must contain at least 1 character.')
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+
+  asyncHandler(async (req, res, next) => {
+    // Extract the validation errors from a request
+    const errors = validationResult(req);
+
+    // Get password from external DB collection
+    const [password] = await mongoose.connection.db
+      .collection('password')
+      .find()
+      .toArray();
+
+    const slug = req.params.slug;
+    const guess = req.body.password;
+
+    // Get item from DB
+    const [item] = await Item.find({ slug: slug }, 'name slug url')
+      .populate('category')
+      .exec();
+
+    // Render the page again if the password is incorrect
+    if (guess.toString() !== password.value.toString()) {
+      // Create custom error array for use in the template
+      const errorArray = [{ msg: 'Wrong password.' }];
+
+      res.render('delete_item', {
+        title: 'Delete Item',
+        item,
+        errors: errorArray,
+      });
+      return;
+    }
+
+    // Render the page again with sanitised values and error messages if there are errors
+    if (!errors.isEmpty()) {
+      res.render('delete_item', {
+        title: 'Delete Item',
+        item,
+        errors: errors.array(),
+      });
+      return;
+    } else {
+      // Delete item and redirect to all items
+      await Item.findByIdAndDelete(item._id);
+      res.redirect('/items');
+    }
+  }),
+];
