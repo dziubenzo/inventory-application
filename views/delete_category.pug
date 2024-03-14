@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  div.delete-category
+    h1 Delete Category
+    if allCategoryItems.length
+      div.items-to-be-deleted-first
+        h3.warning You must first delete the following #{allCategoryItems.length} #{(allCategoryItems.length === 1 ? 'item' : 'items')} in this category:
+        table
+          tr
+            th No.
+            th Item
+          each item, index in allCategoryItems 
+            tr
+              td.index-no #{index + 1}
+              td
+                a(href=item.url) #{item.name}
+    if !allCategoryItems.length
+      h3 Are you sure you want to delete the following category:
+      div.category-to-be-deleted
+        a(href=category.url) #{category.name}
+      form(method="post") 
+        p This action requires password!
+        div.form-control
+          label(for="password") Password: 
+          input#password(type="password" name="password" required)
+        div.submit-button
+          button(type="submit") I Am
+    if errors
+      div.errors
+        for error in errors
+          p ERROR: #{error.msg}

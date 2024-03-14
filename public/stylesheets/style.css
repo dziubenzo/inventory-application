@@ -82,7 +82,8 @@ body {
 .all-categories,
 .item-details,
 .category-details,
-.category-items {
+.category-items,
+.delete-category {
   margin: 2em 0;
   display: grid;
   gap: 16px;
@@ -97,7 +98,9 @@ body {
 .category-details .item-details-table,
 .category-details .category-details-table,
 .category-items .item-details-table,
-.category-items .category-details-table {
+.category-items .category-details-table,
+.delete-category .item-details-table,
+.delete-category .category-details-table {
   max-width: 600px;
 }
 .all-items .item-details-table th,
@@ -109,7 +112,9 @@ body {
 .category-details .item-details-table th,
 .category-details .category-details-table th,
 .category-items .item-details-table th,
-.category-items .category-details-table th {
+.category-items .category-details-table th,
+.delete-category .item-details-table th,
+.delete-category .category-details-table th {
   text-align: initial;
 }
 .all-items .item-details-table td,
@@ -121,14 +126,17 @@ body {
 .category-details .item-details-table td,
 .category-details .category-details-table td,
 .category-items .item-details-table td,
-.category-items .category-details-table td {
+.category-items .category-details-table td,
+.delete-category .item-details-table td,
+.delete-category .category-details-table td {
   line-height: 1.75;
 }
 .all-items .buttons,
 .all-categories .buttons,
 .item-details .buttons,
 .category-details .buttons,
-.category-items .buttons {
+.category-items .buttons,
+.delete-category .buttons {
   display: flex;
   gap: 48px;
 }
@@ -136,7 +144,8 @@ body {
 .all-categories .buttons img,
 .item-details .buttons img,
 .category-details .buttons img,
-.category-items .buttons img {
+.category-items .buttons img,
+.delete-category .buttons img {
   background-color: initial;
   filter: invert(83%) sepia(5%) saturate(549%) hue-rotate(354deg) brightness(92%) contrast(93%);
   width: 48px;
@@ -155,7 +164,10 @@ body {
 .category-details td,
 .category-items th,
 .category-items tr,
-.category-items td {
+.category-items td,
+.delete-category th,
+.delete-category tr,
+.delete-category td {
   padding: 1em;
   font-size: 0.9rem;
 }
@@ -183,14 +195,20 @@ body {
 .category-items .category,
 .category-items .category-name,
 .category-items .category-description,
-.category-items .item-count {
+.category-items .item-count,
+.delete-category .index-no,
+.delete-category .category,
+.delete-category .category-name,
+.delete-category .category-description,
+.delete-category .item-count {
   text-align: center;
 }
 .all-items a,
 .all-categories a,
 .item-details a,
 .category-details a,
-.category-items a {
+.category-items a,
+.delete-category a {
   color: #cac0b3;
   text-decoration-color: #ff595a;
   text-underline-offset: 0.5em;
@@ -200,7 +218,8 @@ body {
 .create-item,
 .update-category,
 .update-item,
-.delete-item {
+.delete-item,
+.delete-category {
   margin: 2em 0;
   display: grid;
   gap: 32px;
@@ -210,7 +229,8 @@ body {
 .create-item .form-control,
 .update-category .form-control,
 .update-item .form-control,
-.delete-item .form-control {
+.delete-item .form-control,
+.delete-category .form-control {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -231,7 +251,10 @@ body {
 .update-item .form-control select,
 .delete-item .form-control input,
 .delete-item .form-control textarea,
-.delete-item .form-control select {
+.delete-item .form-control select,
+.delete-category .form-control input,
+.delete-category .form-control textarea,
+.delete-category .form-control select {
   min-width: 300px;
   border: 2px solid #cac0b3;
   color: #cac0b3;
@@ -253,14 +276,18 @@ body {
 .update-item .form-control select:focus-visible,
 .delete-item .form-control input:focus-visible,
 .delete-item .form-control textarea:focus-visible,
-.delete-item .form-control select:focus-visible {
+.delete-item .form-control select:focus-visible,
+.delete-category .form-control input:focus-visible,
+.delete-category .form-control textarea:focus-visible,
+.delete-category .form-control select:focus-visible {
   outline-color: #ff595a;
 }
 .create-category .form-control textarea,
 .create-item .form-control textarea,
 .update-category .form-control textarea,
 .update-item .form-control textarea,
-.delete-item .form-control textarea {
+.delete-item .form-control textarea,
+.delete-category .form-control textarea {
   resize: vertical;
 }
 .create-category .form-control input::-webkit-outer-spin-button,
@@ -272,7 +299,9 @@ body {
 .update-item .form-control input::-webkit-outer-spin-button,
 .update-item .form-control input::-webkit-inner-spin-button,
 .delete-item .form-control input::-webkit-outer-spin-button,
-.delete-item .form-control input::-webkit-inner-spin-button {
+.delete-item .form-control input::-webkit-inner-spin-button,
+.delete-category .form-control input::-webkit-outer-spin-button,
+.delete-category .form-control input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -280,7 +309,8 @@ body {
 .create-item .form-control input[type=number],
 .update-category .form-control input[type=number],
 .update-item .form-control input[type=number],
-.delete-item .form-control input[type=number] {
+.delete-item .form-control input[type=number],
+.delete-category .form-control input[type=number] {
   -webkit-appearance: textfield;
           appearance: textfield;
   -moz-appearance: textfield;
@@ -289,7 +319,8 @@ body {
 .create-item p,
 .update-category p,
 .update-item p,
-.delete-item p {
+.delete-item p,
+.delete-category p {
   margin: 2em 0;
   text-align: center;
 }
@@ -297,7 +328,8 @@ body {
 .create-item .submit-button,
 .update-category .submit-button,
 .update-item .submit-button,
-.delete-item .submit-button {
+.delete-item .submit-button,
+.delete-category .submit-button {
   display: flex;
   justify-content: center;
   margin-top: 2em;
@@ -306,7 +338,8 @@ body {
 .create-item .submit-button button,
 .update-category .submit-button button,
 .update-item .submit-button button,
-.delete-item .submit-button button {
+.delete-item .submit-button button,
+.delete-category .submit-button button {
   min-width: 100px;
   min-height: 40px;
   padding: 0.75em;
@@ -321,23 +354,49 @@ body {
 .create-item .submit-button button:focus-visible,
 .update-category .submit-button button:focus-visible,
 .update-item .submit-button button:focus-visible,
-.delete-item .submit-button button:focus-visible {
+.delete-item .submit-button button:focus-visible,
+.delete-category .submit-button button:focus-visible {
   outline-color: #ff595a;
 }
 .create-category .item-to-be-deleted a,
+.create-category .category-to-be-deleted a,
 .create-item .item-to-be-deleted a,
+.create-item .category-to-be-deleted a,
 .update-category .item-to-be-deleted a,
+.update-category .category-to-be-deleted a,
 .update-item .item-to-be-deleted a,
-.delete-item .item-to-be-deleted a {
+.update-item .category-to-be-deleted a,
+.delete-item .item-to-be-deleted a,
+.delete-item .category-to-be-deleted a,
+.delete-category .item-to-be-deleted a,
+.delete-category .category-to-be-deleted a {
   color: #cac0b3;
   text-decoration-color: #ff595a;
   text-underline-offset: 0.5em;
+}
+.create-category .items-to-be-deleted-first table,
+.create-item .items-to-be-deleted-first table,
+.update-category .items-to-be-deleted-first table,
+.update-item .items-to-be-deleted-first table,
+.delete-item .items-to-be-deleted-first table,
+.delete-category .items-to-be-deleted-first table {
+  margin: auto;
+}
+.create-category .items-to-be-deleted-first .warning,
+.create-item .items-to-be-deleted-first .warning,
+.update-category .items-to-be-deleted-first .warning,
+.update-item .items-to-be-deleted-first .warning,
+.delete-item .items-to-be-deleted-first .warning,
+.delete-category .items-to-be-deleted-first .warning {
+  text-align: center;
+  margin-bottom: 1em;
 }
 .create-category .errors p,
 .create-item .errors p,
 .update-category .errors p,
 .update-item .errors p,
-.delete-item .errors p {
+.delete-item .errors p,
+.delete-category .errors p {
   color: red;
   text-align: center;
   margin-bottom: 1em;
