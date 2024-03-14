@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.use('/', indexRouter);
 app.use('/items', itemRouter);
-app.use('/categories', categoryRouter)
+app.use('/categories', categoryRouter);
 
 // Catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -49,6 +49,8 @@ app.use(function (err, req, res, next) {
   // Set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // Pass title to the template
+  res.locals.title = `Error - ${err.message}`;
 
   // Render the error page
   res.status(err.status || 500);

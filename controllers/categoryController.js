@@ -91,7 +91,7 @@ exports.category_details = asyncHandler(async (req, res, next) => {
 
   // Render error page if category not found
   if (!category) {
-    res.render('error', {
+    res.status(404).render('error', {
       title: 'Error - Category',
       message: 'Category Not Found',
       error: { status: 404 },

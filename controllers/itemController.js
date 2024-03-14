@@ -124,6 +124,16 @@ exports.item_details = asyncHandler(async (req, res, next) => {
   const slug = req.params.slug;
   const [item] = await Item.find({ slug: slug }).populate('category').exec();
 
+  // Render error page if item not found
+  if (!item) {
+    res.status(404).render('error', {
+      title: 'Error - Item',
+      message: 'Item Not Found',
+      error: { status: 404 },
+    });
+    return;
+  }
+
   res.render('item_details', { title: 'Item Details', item });
 });
 
