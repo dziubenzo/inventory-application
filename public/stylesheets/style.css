@@ -199,7 +199,8 @@ body {
 .create-category,
 .create-item,
 .update-category,
-.update-item {
+.update-item,
+.delete-item {
   margin: 2em 0;
   display: grid;
   gap: 32px;
@@ -208,7 +209,8 @@ body {
 .create-category .form-control,
 .create-item .form-control,
 .update-category .form-control,
-.update-item .form-control {
+.update-item .form-control,
+.delete-item .form-control {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -226,7 +228,10 @@ body {
 .update-category .form-control select,
 .update-item .form-control input,
 .update-item .form-control textarea,
-.update-item .form-control select {
+.update-item .form-control select,
+.delete-item .form-control input,
+.delete-item .form-control textarea,
+.delete-item .form-control select {
   min-width: 300px;
   border: 2px solid #cac0b3;
   color: #cac0b3;
@@ -245,13 +250,17 @@ body {
 .update-category .form-control select:focus-visible,
 .update-item .form-control input:focus-visible,
 .update-item .form-control textarea:focus-visible,
-.update-item .form-control select:focus-visible {
+.update-item .form-control select:focus-visible,
+.delete-item .form-control input:focus-visible,
+.delete-item .form-control textarea:focus-visible,
+.delete-item .form-control select:focus-visible {
   outline-color: #ff595a;
 }
 .create-category .form-control textarea,
 .create-item .form-control textarea,
 .update-category .form-control textarea,
-.update-item .form-control textarea {
+.update-item .form-control textarea,
+.delete-item .form-control textarea {
   resize: vertical;
 }
 .create-category .form-control input::-webkit-outer-spin-button,
@@ -261,14 +270,17 @@ body {
 .update-category .form-control input::-webkit-outer-spin-button,
 .update-category .form-control input::-webkit-inner-spin-button,
 .update-item .form-control input::-webkit-outer-spin-button,
-.update-item .form-control input::-webkit-inner-spin-button {
+.update-item .form-control input::-webkit-inner-spin-button,
+.delete-item .form-control input::-webkit-outer-spin-button,
+.delete-item .form-control input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 .create-category .form-control input[type=number],
 .create-item .form-control input[type=number],
 .update-category .form-control input[type=number],
-.update-item .form-control input[type=number] {
+.update-item .form-control input[type=number],
+.delete-item .form-control input[type=number] {
   -webkit-appearance: textfield;
           appearance: textfield;
   -moz-appearance: textfield;
@@ -276,14 +288,16 @@ body {
 .create-category p,
 .create-item p,
 .update-category p,
-.update-item p {
+.update-item p,
+.delete-item p {
   margin: 2em 0;
   text-align: center;
 }
 .create-category .submit-button,
 .create-item .submit-button,
 .update-category .submit-button,
-.update-item .submit-button {
+.update-item .submit-button,
+.delete-item .submit-button {
   display: flex;
   justify-content: center;
   margin-top: 2em;
@@ -291,7 +305,8 @@ body {
 .create-category .submit-button button,
 .create-item .submit-button button,
 .update-category .submit-button button,
-.update-item .submit-button button {
+.update-item .submit-button button,
+.delete-item .submit-button button {
   min-width: 100px;
   min-height: 40px;
   padding: 0.75em;
@@ -305,13 +320,24 @@ body {
 .create-category .submit-button button:focus-visible,
 .create-item .submit-button button:focus-visible,
 .update-category .submit-button button:focus-visible,
-.update-item .submit-button button:focus-visible {
+.update-item .submit-button button:focus-visible,
+.delete-item .submit-button button:focus-visible {
   outline-color: #ff595a;
+}
+.create-category .item-to-be-deleted a,
+.create-item .item-to-be-deleted a,
+.update-category .item-to-be-deleted a,
+.update-item .item-to-be-deleted a,
+.delete-item .item-to-be-deleted a {
+  color: #cac0b3;
+  text-decoration-color: #ff595a;
+  text-underline-offset: 0.5em;
 }
 .create-category .errors p,
 .create-item .errors p,
 .update-category .errors p,
-.update-item .errors p {
+.update-item .errors p,
+.delete-item .errors p {
   color: red;
   text-align: center;
   margin-bottom: 1em;

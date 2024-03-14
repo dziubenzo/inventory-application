@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div.delete-item
+    h1 Delete Item
+    h3 Are you sure you want to delete the following item:
+    div.item-to-be-deleted
+      a(href=item.url) #{item.name}
+    form(method="post") 
+      p This action requires password!
+      div.form-control
+        label(for="password") Password: 
+        input#password(type="password" name="password" required)
+      div.submit-button
+        button(type="submit") I Am
+    if errors
+      div.errors
+        for error in errors
+          p ERROR: #{error.msg}

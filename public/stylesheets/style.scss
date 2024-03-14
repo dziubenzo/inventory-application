@@ -157,7 +157,8 @@ body {
 .create-category,
 .create-item,
 .update-category,
-.update-item {
+.update-item,
+.delete-item {
   margin: 2em 0;
   display: grid;
   gap: 32px;
@@ -225,6 +226,14 @@ body {
       &:focus-visible {
         outline-color: $primary-colour;
       }
+    }
+  }
+
+  .item-to-be-deleted {
+    a {
+      color: $secondary-colour;
+      text-decoration-color: $primary-colour;
+      text-underline-offset: 0.5em;
     }
   }
 
