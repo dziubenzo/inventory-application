@@ -257,7 +257,13 @@ exports.update_item_post = [
 ];
 
 exports.delete_item_get = asyncHandler(async (req, res, next) => {
-  res.send('Delete item');
+  // Get requested item from DB based on URL parameter
+  const slug = req.params.slug;
+  const [item] = await Item.find({ slug: slug }, 'name slug url')
+    .populate('category')
+    .exec();
+
+  res.render('delete_item', { title: 'Delete Item', item });
 });
 
 exports.delete_item_post = asyncHandler(async (req, res, next) => {
