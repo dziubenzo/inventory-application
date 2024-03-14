@@ -232,7 +232,10 @@ body {
   }
 
   .item-to-be-deleted,
-  .category-to-be-deleted {
+  .category-to-be-deleted,
+  h3 {
+    text-align: center;
+
     a {
       color: $secondary-colour;
       text-decoration-color: $primary-colour;
@@ -264,4 +267,107 @@ body {
   flex-direction: column;
   gap: 32px;
   align-items: center;
+}
+
+/* 
+Mobile media query
+*/
+
+@media (width <= 700px) {
+  nav {
+    ul {
+      gap: 4px;
+
+      li {
+        min-width: 60px;
+        max-width: 60px;
+
+        a {
+          font-size: 0.7rem;
+          text-align: center;
+
+          span {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    gap: 8px;
+
+    img {
+      width: 24px;
+    }
+
+    .app-name,
+    .app-title {
+      display: none;
+      top: 0;
+    }
+  }
+
+  .container {
+    padding: 1em 0;
+  }
+
+  .index-page {
+    gap: 64px;
+  }
+
+  .all-items,
+  .all-categories,
+  .item-details,
+  .category-details,
+  .category-items,
+  .delete-category {
+    gap: 8px;
+
+    .item-details-table,
+    .category-details-table {
+      td {
+        line-height: 1.6;
+      }
+    }
+
+    .buttons {
+      gap: 32px;
+
+      img {
+        width: 32px;
+      }
+    }
+
+    th,
+    tr,
+    td {
+      padding: 0.75em;
+      font-size: 0.8rem;
+    }
+  }
+
+  .create-category,
+  .create-item,
+  .update-category,
+  .update-item,
+  .delete-item,
+  .delete-category {
+    margin: 2em 0;
+    gap: 32px;
+
+    .form-control {
+      display: grid;
+      place-items: center;
+      gap: 8px;
+    }
+
+    p {
+      margin: 1em 0;
+    }
+  }
+
+  main {
+    margin: 0 0.25em;
+  }
 }

@@ -358,18 +358,44 @@ body {
 .delete-category .submit-button button:focus-visible {
   outline-color: #ff595a;
 }
+.create-category .item-to-be-deleted,
+.create-category .category-to-be-deleted,
+.create-category h3,
+.create-item .item-to-be-deleted,
+.create-item .category-to-be-deleted,
+.create-item h3,
+.update-category .item-to-be-deleted,
+.update-category .category-to-be-deleted,
+.update-category h3,
+.update-item .item-to-be-deleted,
+.update-item .category-to-be-deleted,
+.update-item h3,
+.delete-item .item-to-be-deleted,
+.delete-item .category-to-be-deleted,
+.delete-item h3,
+.delete-category .item-to-be-deleted,
+.delete-category .category-to-be-deleted,
+.delete-category h3 {
+  text-align: center;
+}
 .create-category .item-to-be-deleted a,
 .create-category .category-to-be-deleted a,
+.create-category h3 a,
 .create-item .item-to-be-deleted a,
 .create-item .category-to-be-deleted a,
+.create-item h3 a,
 .update-category .item-to-be-deleted a,
 .update-category .category-to-be-deleted a,
+.update-category h3 a,
 .update-item .item-to-be-deleted a,
 .update-item .category-to-be-deleted a,
+.update-item h3 a,
 .delete-item .item-to-be-deleted a,
 .delete-item .category-to-be-deleted a,
+.delete-item h3 a,
 .delete-category .item-to-be-deleted a,
-.delete-category .category-to-be-deleted a {
+.delete-category .category-to-be-deleted a,
+.delete-category h3 a {
   color: #cac0b3;
   text-decoration-color: #ff595a;
   text-underline-offset: 0.5em;
@@ -407,4 +433,130 @@ body {
   flex-direction: column;
   gap: 32px;
   align-items: center;
+}
+
+/* 
+Mobile media query
+*/
+@media (width <= 700px) {
+  nav ul {
+    gap: 4px;
+  }
+  nav ul li {
+    min-width: 60px;
+    max-width: 60px;
+  }
+  nav ul li a {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+  nav ul li a span {
+    font-size: 1.3rem;
+  }
+  footer {
+    gap: 8px;
+  }
+  footer img {
+    width: 24px;
+  }
+  footer .app-name,
+  footer .app-title {
+    display: none;
+    top: 0;
+  }
+  .container {
+    padding: 1em 0;
+  }
+  .index-page {
+    gap: 64px;
+  }
+  .all-items,
+  .all-categories,
+  .item-details,
+  .category-details,
+  .category-items,
+  .delete-category {
+    gap: 8px;
+  }
+  .all-items .item-details-table td,
+  .all-items .category-details-table td,
+  .all-categories .item-details-table td,
+  .all-categories .category-details-table td,
+  .item-details .item-details-table td,
+  .item-details .category-details-table td,
+  .category-details .item-details-table td,
+  .category-details .category-details-table td,
+  .category-items .item-details-table td,
+  .category-items .category-details-table td,
+  .delete-category .item-details-table td,
+  .delete-category .category-details-table td {
+    line-height: 1.6;
+  }
+  .all-items .buttons,
+  .all-categories .buttons,
+  .item-details .buttons,
+  .category-details .buttons,
+  .category-items .buttons,
+  .delete-category .buttons {
+    gap: 32px;
+  }
+  .all-items .buttons img,
+  .all-categories .buttons img,
+  .item-details .buttons img,
+  .category-details .buttons img,
+  .category-items .buttons img,
+  .delete-category .buttons img {
+    width: 32px;
+  }
+  .all-items th,
+  .all-items tr,
+  .all-items td,
+  .all-categories th,
+  .all-categories tr,
+  .all-categories td,
+  .item-details th,
+  .item-details tr,
+  .item-details td,
+  .category-details th,
+  .category-details tr,
+  .category-details td,
+  .category-items th,
+  .category-items tr,
+  .category-items td,
+  .delete-category th,
+  .delete-category tr,
+  .delete-category td {
+    padding: 0.75em;
+    font-size: 0.8rem;
+  }
+  .create-category,
+  .create-item,
+  .update-category,
+  .update-item,
+  .delete-item,
+  .delete-category {
+    margin: 2em 0;
+    gap: 32px;
+  }
+  .create-category .form-control,
+  .create-item .form-control,
+  .update-category .form-control,
+  .update-item .form-control,
+  .delete-item .form-control,
+  .delete-category .form-control {
+    display: grid;
+    place-items: center;
+    gap: 8px;
+  }
+  .create-category p,
+  .create-item p,
+  .update-category p,
+  .update-item p,
+  .delete-item p,
+  .delete-category p {
+    margin: 1em 0;
+  }
+  main {
+    margin: 0 0.25em;
+  }
 }/*# sourceMappingURL=style.css.map */
