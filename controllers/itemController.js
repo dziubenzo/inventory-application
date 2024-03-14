@@ -30,7 +30,13 @@ exports.create_item_post = [
   body('name', 'Item name must contain between 3 and 200 characters.')
     .trim()
     .isLength({ min: 3, max: 200 })
-    .escape(),
+    .escape()
+    .custom((value) => {
+      const prohibitedNames = ['create', 'update', 'delete'];
+      if (prohibitedNames.includes(value.toLowerCase())) {
+        throw new Error(`Item name cannot be "${value}".`);
+      }
+    }),
 
   body('description', 'Item description must contain at least 3 characters.')
     .trim()
@@ -155,7 +161,13 @@ exports.update_item_post = [
   body('name', 'Item name must contain between 3 and 200 characters.')
     .trim()
     .isLength({ min: 3, max: 200 })
-    .escape(),
+    .escape()
+    .custom((value) => {
+      const prohibitedNames = ['create', 'update', 'delete'];
+      if (prohibitedNames.includes(value.toLowerCase())) {
+        throw new Error(`Item name cannot be "${value}".`);
+      }
+    }),
 
   body('description', 'Item description must contain at least 3 characters.')
     .trim()

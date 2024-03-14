@@ -28,7 +28,13 @@ exports.create_category_post = [
   body('name', 'Category name must contain between 3 and 100 characters.')
     .trim()
     .isLength({ min: 3, max: 100 })
-    .escape(),
+    .escape()
+    .custom((value) => {
+      const prohibitedNames = ['create', 'update', 'delete'];
+      if (prohibitedNames.includes(value.toLowerCase())) {
+        throw new Error(`Category name cannot be "${value}".`);
+      }
+    }),
 
   body(
     'description',
@@ -124,7 +130,13 @@ exports.update_category_post = [
   body('name', 'Category name must contain between 3 and 100 characters.')
     .trim()
     .isLength({ min: 3, max: 100 })
-    .escape(),
+    .escape()
+    .custom((value) => {
+      const prohibitedNames = ['create', 'update', 'delete'];
+      if (prohibitedNames.includes(value.toLowerCase())) {
+        throw new Error(`Category name cannot be "${value}".`);
+      }
+    }),
 
   body(
     'description',
