@@ -188,7 +188,22 @@ exports.update_category_post = [
 ];
 
 exports.delete_category_get = asyncHandler(async (req, res, next) => {
-  res.send('Delete category');
+  // Get requested category from DB based on URL parameter
+  const slug = req.params.slug;
+  const [category] = await Category.find(
+    { slug: slug },
+    'name slug url'
+  ).exec();
+  // Get all items in this category
+  const allCategoryItems = await Item.find({ category: category })
+    .sort({ name: 1 })
+    .exec();
+
+  res.render('delete_category', {
+    title: 'Delete Category',
+    category,
+    allCategoryItems,
+  });
 });
 
 exports.delete_category_post = asyncHandler(async (req, res, next) => {
