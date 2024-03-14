@@ -206,6 +206,59 @@ exports.delete_category_get = asyncHandler(async (req, res, next) => {
   });
 });
 
-exports.delete_category_post = asyncHandler(async (req, res, next) => {
-  res.send('Delete category');
-});
+exports.delete_category_post = [
+  // Validate and sanitise password
+  body('password', 'Password must contain at least 1 character.')
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+
+  asyncHandler(async (req, res, next) => {
+    // Extract the validation errors from a request
+    const errors = validationResult(req);
+
+    // Get password from external DB collection
+    const [password] = await mongoose.connection.db
+      .collection('password')
+      .find()
+      .toArray();
+
+    const slug = req.params.slug;
+    const guess = req.body.password;
+
+    // Get category from DB
+    const [category] = await Category.find(
+      { slug: slug },
+      'name slug url'
+    ).exec();
+
+    // Render the page again if the password is incorrect
+    if (guess.toString() !== password.value.toString()) {
+      // Create custom error array for use in the template
+      const errorArray = [{ msg: 'Wrong password.' }];
+
+      res.render('delete_category', {
+        title: 'Delete Category',
+        category,
+        allCategoryItems: [],
+        errors: errorArray,
+      });
+      return;
+    }
+
+    // Render the page again with sanitised values and error messages if there are errors
+    if (!errors.isEmpty()) {
+      res.render('delete_category', {
+        title: 'Delete Category',
+        category,
+        allCategoryItems: [],
+        errors: errors.array(),
+      });
+      return;
+    } else {
+      // Delete category and redirect to all categories
+      await Category.findByIdAndDelete(category._id);
+      res.redirect('/categories');
+    }
+  }),
+];
