@@ -36,6 +36,7 @@ exports.create_item_post = [
       if (prohibitedNames.includes(value.toLowerCase())) {
         throw new Error(`Item name cannot be "${value}".`);
       }
+      return true;
     }),
 
   body('description', 'Item description must contain at least 3 characters.')
@@ -167,6 +168,7 @@ exports.update_item_post = [
       if (prohibitedNames.includes(value.toLowerCase())) {
         throw new Error(`Item name cannot be "${value}".`);
       }
+      return true;
     }),
 
   body('description', 'Item description must contain at least 3 characters.')

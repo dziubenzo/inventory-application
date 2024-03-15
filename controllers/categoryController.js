@@ -34,6 +34,7 @@ exports.create_category_post = [
       if (prohibitedNames.includes(value.toLowerCase())) {
         throw new Error(`Category name cannot be "${value}".`);
       }
+      return true;
     }),
 
   body(
@@ -136,6 +137,7 @@ exports.update_category_post = [
       if (prohibitedNames.includes(value.toLowerCase())) {
         throw new Error(`Category name cannot be "${value}".`);
       }
+      return true;
     }),
 
   body(
